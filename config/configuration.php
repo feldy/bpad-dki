@@ -4,7 +4,7 @@
 	// mysqli_select_db($conn, 'u346528017_la') or die(mysqli_error($conn));
 
 	$conn = mysqli_connect("localhost","root","admin");
-	mysqli_select_db($conn, 'db_lintas_arta') or die(mysqli_error($conn));
+	mysqli_select_db($conn, 'dosir_bpad') or die(mysqli_error($conn));
 
 	function gen_uuid() {
 	    return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
@@ -27,91 +27,57 @@
 	        mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
 	    );
 	}
-?>
-<?php
-    function parsingBoolean($bool){
-        if ($bool) {
-            return "Ya";
-        } else {
-            return "Tidak";
-        }
 
+    function get_tanggal($tanggal) {
+        $day = date('d', strtotime($tanggal));
+        $year = date('Y', strtotime($tanggal));
+        $month = date('M', strtotime($tanggal));
+        $monthList = array(
+            "Jan" => "Jan",
+            "Feb" => "Feb",
+            "Mar" => "Mar",
+            "Apr" => "Apr",
+            "May" => "Mei",
+            "Jun" => "Jun",
+            "Jul" => "Jul",
+            "Aug" => "Ags",
+            "Sep" => "Sep",
+            "Oct" => "Okt",
+            "Nov" => "Nov",
+            "Dec" => "Des"
+        );
+        return $day." ".$monthList[$month]." ".$year;
+    }
+
+    
+    /**
+     * trims text to a space then adds ellipses if desired
+     * @param string $input text to trim
+     * @param int $length in characters to trim to
+     * @param bool $ellipses if ellipses (...) are to be added
+     * @param bool $strip_html if html tags are to be stripped
+     * @return string 
+     */
+    function trim_text($input, $length, $ellipses = true, $strip_html = true) {
+        //strip tags, if desired
+        if ($strip_html) {
+            $input = strip_tags($input);
+        }
+      
+        //no need to trim, already shorter than trim length
+        if (strlen($input) <= $length) {
+            return $input;
+        }
+      
+        //find last space within length
+        $last_space = strrpos(substr($input, 0, $length), ' ');
+        $trimmed_text = substr($input, 0, $last_space);
+      
+        //add ellipses (...)
+        if ($ellipses) {
+            $trimmed_text .= '...';
+        }
+      
+        return $trimmed_text;
     }
 ?>
-<?php
-    function showDialog($title, $msg, $type, $href) {
-    	$color = "lazur";
-    	$emoticon = "smile";
-    	if ($type == 'error') {
-    		$color = 'red';
-    		$emoticon = "frown";
-    	}
-?>
-<style type="text/css">
-	
-
-</style>
-<link href="../../lib/css/bootstrap.min.css" rel="stylesheet">
-<link href="../../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-<link href="../../lib/css/animate.css" rel="stylesheet">
-<link href="../../css/default.css" rel="stylesheet">
-<link href="../../lib/css/style.css" rel="stylesheet">
-<div class="row animated fadeInRight">
-    <div class="col-sm-12">
-        <div class="widget <?php echo $color;?>-bg p-lg text-center">
-            <div class="m-b-md">
-                <h1 class="m-xs"><i class="fa fa-<?php echo $emoticon; ?>-o fa-2x"></i></h1>
-                <h3 class="font-bold no-margins">
-                    <?php echo $title; ?>
-                </h3>
-                <small><?php echo $msg; ?></small>
-                <?php 
-                	if (!empty($href)) {
-                		echo "<script>setTimeout(function(){window.location.href='".$href."'}, 2500)</script>";
-                	}
-                ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>
-
-<?php
-    function showDialogUtama($title, $msg, $type, $href) {
-    	$color = "lazur";
-    	$emoticon = "smile";
-    	if ($type == 'error') {
-    		$color = 'red';
-    		$emoticon = "frown";
-    	}
-?>
-<style type="text/css">
-	
-
-</style>
-<link href="../lib/css/bootstrap.min.css" rel="stylesheet">
-<link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-<link href="../lib/css/animate.css" rel="stylesheet">
-<link href="../css/default.css" rel="stylesheet">
-<link href="../lib/css/style.css" rel="stylesheet">
-<div class="row animated fadeInRight">
-    <div class="col-sm-12">
-        <div class="widget <?php echo $color;?>-bg p-lg text-center">
-            <div class="m-b-md">
-                <h1 class="m-xs"><i class="fa fa-<?php echo $emoticon; ?>-o fa-2x"></i></h1>
-                <h3 class="font-bold no-margins">
-                    <?php echo $title; ?>
-                </h3>
-                <small><?php echo $msg; ?></small>
-                <?php 
-                	if (!empty($href)) {
-                		echo "<script>setTimeout(function(){window.location.href='".$href."'}, 2500)</script>";
-                	}
-                ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>

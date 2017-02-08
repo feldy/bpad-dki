@@ -1,3 +1,4 @@
+body { padding-top: 60px; }
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -18,4 +19,17 @@
     display: block;
 }
 
-body { padding-top: 60px; }
+.dosir-list li a {
+  padding: 1px 0;
+}
+.dosir-list li a:hover {
+  text-decoration: underline;
+}
+.dosir-list li {
+  display: block;
+}
+.dosir-list li i {
+  margin-right: 8px;
+  color: #3d4d5d;
+}
+
