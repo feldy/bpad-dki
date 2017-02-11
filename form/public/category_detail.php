@@ -16,8 +16,14 @@
                 <img alt="image" class="img-responsive" src="images/picture_not_available.png">
             </div>
             <div class="col-md-7">
-                <a href="?p=detail&id=<?php echo $arr['sid'];?>" class="forum-item-title"><?php echo $arr['judul']?></a>
-                <div class=""><?php echo trim_text(htmlspecialchars_decode($arr['isi']), 350);?></div>
+                <div class="row">
+                    <a href="?p=detail&id=<?php echo $arr['sid'];?>" class="forum-item-title"><?php echo $arr['judul']?></a>
+                    <div class=""><?php echo trim_text(htmlspecialchars_decode($arr['isi']), 400);?></div>
+                </div>
+                <div class="row">
+                    <small class="text-muted"><i class="fa fa-clock-o"></i> <?php echo get_tanggal($arr['tanggal'])?></small> -
+                    <small class="text-warning"><a href="?p=category-detail&category=<?php echo $arr['category']?>" class="text-warning"><i class="fa fa-tag"></i> <?php echo $arr['category']?></a></small> 
+                </div>
             </div>
             <div class="col-md-1">
                 <div class="col-md-1 forum-info">

@@ -5,10 +5,14 @@
                 <h5><i class="fa fa-search"></i> Pencarian</h5>
             </div>
             <div class="ibox-content">
-                <div class="input-group">
-                    <input type="text" placeholder="Cari" class="input-sm form-control"> 
-                    <span class="input-group-btn">
-                    <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+                <div class="search-form">
+                    <form action="" method="post">
+                        <div class="input-group">
+                            <input type="text" placeholder="Pencarian" name="txt_search" value="<?php echo $txtSearch;?>" class="input-sm form-control"> 
+                            <span class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary" name="searching"> Cari!</button> </span>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

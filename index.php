@@ -20,13 +20,13 @@
           </div>
         </nav>
         <div class="row  border-bottom white-bg dashboard-header">
-            <div class="col-sm-2 ibox-content ibox-heading">
+            <div class="col-lg-2 ibox-content ibox-heading">
                 <?php include("form/templates/container_left.php");?>
             </div>
-            <div class="col-sm-7">
+            <div class="col-lg-7">
                 <?php include("form/templates/container_center.php");?>
             </div>
-            <div class="col-sm-3">
+            <div class="col-lg-3">
                 <?php include("form/templates/container_right.php");?>
             </div>
         </div>
