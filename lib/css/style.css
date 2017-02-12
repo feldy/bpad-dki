@@ -70,6 +70,7 @@ h5 {
 }
 .navbar-default {
   background-color: transparent;
+  /*background-color: #293846;*/
   border-color: #2f4050;
 }
 .navbar-top-links li {
