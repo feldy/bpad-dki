@@ -2,6 +2,7 @@
     $sid_artikel = "";
     $judul = "";
     $kategori = "";
+    $isi = "";
 
     if (isset($_GET['id'])) {
         $sid_artikel = $_GET['id'];
@@ -11,6 +12,7 @@
         
         $judul = $arr['judul'];
         $kategori = $arr['category'];
+        $isi = htmlspecialchars_decode($arr["isi"]);
     }
 
 ?>
@@ -36,7 +38,7 @@
                     </div>
                     <div class="mail-text h-200">
                         <div class="summernote">
-                            <?php echo htmlspecialchars_decode($arr["isi"]);?>
+                            <?php echo $isi;?>
                         </div>
                         <div class="clearfix"></div>
                     </div>

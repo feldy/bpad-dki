@@ -5,6 +5,10 @@
     if (empty($_SESSION['username']) || empty($_SESSION['password']) || $_SESSION['role'] != "admin" ) {
         echo "<script>window.location.href='login.php'</script>";
     } else {
+        $page = "";
+        if (isset($_GET["p"])) {
+            $page = $_GET["p"];
+        }
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,7 +80,7 @@
             <div class="row">
                 <div class="col-lg-12" style="padding: 0px;">
                     <?php 
-                        switch ($_GET['p']) {
+                        switch ($page) {
                             case 'create-artikel':
                                 include("create_artikel.php");
                                 break;                                                       

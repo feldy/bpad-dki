@@ -1,7 +1,7 @@
 <?php
 	error_reporting(E_ALL); 
-	// $conn = mysqli_connect("mysql.idhostinger.com","u346528017_la","admin12345");
-	// mysqli_select_db($conn, 'u346528017_la') or die(mysqli_error($conn));
+	// $conn = mysqli_connect("mysql.idhostinger.com","u263754169_bpad","u263754169_bpad");
+	// mysqli_select_db($conn, 'u263754169_bpad') or die(mysqli_error($conn));
 
 	$conn = mysqli_connect("localhost","root","admin");
 	mysqli_select_db($conn, 'dosir_bpad') or die(mysqli_error($conn));
