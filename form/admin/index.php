@@ -11,6 +11,10 @@
 
     <link href="../../lib/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../../lib/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../../lib/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="../../lib/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="../../lib/css/animate.css" rel="stylesheet">
     <link href="../../lib/css/style.css" rel="stylesheet">
 
 </head>
@@ -33,9 +37,9 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Menu</span> <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Menu</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="#">Content Artikel</a></li>
+                            <li class="active"><a href="?p=index">Content Artikel</a></li>
                            <!--  <li ><a href="#">Dashboard v.2</a></li>
                             <li ><a href="#">Dashboard v.3</a></li>
                             <li ><a href="#">Dashboard v.4</a></li> -->
@@ -64,7 +68,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-12" style="padding: 0px;">
-                    <?php include("admin_list_artikel.php");?>
+                    <?php 
+                        switch ($_GET['p']) {
+                            case 'create-artikel':
+                                include("create_artikel.php");
+                                break;                                                       
+                            default:
+                                include("admin_list_artikel.php");
+                                break;
+                        }
+                    ?>
                 </div>
             </div>
             <div class="footer">
@@ -82,6 +95,24 @@
     <script src="../../lib/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <!-- Custom and plugin javascript -->
     <script src="../../lib/js/inspinia.js"></script>
+    <script src="../../lib/js/plugins/pace/pace.min.js"></script>
+    <!-- iCheck -->
+    <!-- <script src="../../lib/js/plugins/iCheck/icheck.min.js"></script> -->
+    <!-- SUMMERNOTE -->
+    <script src="../../lib/js/plugins/summernote/summernote.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.summernote').summernote();
+        });
+        var edit = function() {
+            $('.click2edit').summernote({focus: true});
+        };
+        var save = function() {
+            var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+            $('.click2edit').destroy();
+        };
+
+    </script>
 
    
 </body>

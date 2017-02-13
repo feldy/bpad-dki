@@ -1,4 +1,3 @@
-
 <div class="ibox float-e-margins">
     <div class="ibox-title">
         <h5>Daftar Artikel</h5>
@@ -12,7 +11,7 @@
         <div class="row">
             <div class="col-sm-9">
                 <span class="input-group-btn">
-                    <button type="button" class="btn btn-sm btn-primary"> Buat Artikel</button> 
+                    <a href="?p=create-artikel" type="button" class="btn btn-sm btn-primary"> Buat Artikel</a> 
                 </span>
             </div>
             <div class="col-sm-3">
@@ -42,10 +41,9 @@
                     <td class="project-title">
                         <a href="#"><?php echo $arr['judul']; ?></a>
                         <br/>
-                        <small><?php echo trim_text(htmlspecialchars_decode($arr['isi']), 150);?></small>
+                        <small><?php echo trim_text(htmlspecialchars_decode($arr['isi']), 170);?></small>
                     </td>
                     <td class="project-actions">
-                        <a class="btn btn-white btn-sm"><i class="fa fa-folder"></i> View</a>
                         <a class="btn btn-white btn-sm"><i class="fa fa-ban"></i> Edit</a>
                         <a class="btn btn-white btn-sm"><i class="fa fa-send"></i> Publish</a>
                     </td>
