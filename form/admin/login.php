@@ -29,7 +29,7 @@
 		    </div>
 		    <h3>Welcome to Dispusip DKI Jakarta</h3>
 		    <p>Aplikasi | Dosir Arsip DKI Jakarta</p>
-		    <form method="post" class="m-t" role="form" action="../system/login_security.php">
+		    <form method="post" class="m-t" role="form" action="../../system/login_security.php">
 		        <div class="form-group">
 		            <input type="text" name="username" class="form-control" placeholder="Username" required="">
 		        </div>

@@ -11,23 +11,32 @@
         <link href="lib/css/style.css" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
-                <div class="navbar-header">
-                    <a href="?p=home"><img alt="Brand" class="img-responsive" width="90px" src="images/siDOEL.png"></a>
+        <div id="wrapper">
+            <div id="page-wrapper" style="margin-left: 0px;min-height: inherit;" class="gray-bg dashbard-1">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                  <div class="container">
+                        <div class="navbar-header">
+                            <a href="?p=home"><img alt="Brand" class="img-responsive" width="90px" src="images/siDOEL.png"></a>
+                        </div>
+                        <p class="navbar-text" style="margin-left: -15px;"><h2>Sistem Dosir Elektronik</h2></p>
+                  </div>
+                </nav>
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <div class="col-lg-2 ibox-content ibox-heading">
+                        <?php include("form/templates/container_left.php");?>
+                    </div>
+                    <div class="col-lg-7">
+                        <?php include("form/templates/container_center.php");?>
+                    </div>
+                    <div class="col-lg-3">
+                        <?php include("form/templates/container_right.php");?>
+                    </div>
                 </div>
-                <p class="navbar-text" style="margin-left: -15px;"><h2>Sistem Dosir Elektronik</h2></p>
-          </div>
-        </nav>
-        <div class="row  border-bottom white-bg dashboard-header">
-            <div class="col-lg-2 ibox-content ibox-heading">
-                <?php include("form/templates/container_left.php");?>
-            </div>
-            <div class="col-lg-7">
-                <?php include("form/templates/container_center.php");?>
-            </div>
-            <div class="col-lg-3">
-                <?php include("form/templates/container_right.php");?>
+                <div class="footer">
+                    <div>
+                        <strong>Copyright</strong> Dispusip DKI Jakarta &copy; 2017
+                    </div>
+                </div>
             </div>
         </div>
     </body>

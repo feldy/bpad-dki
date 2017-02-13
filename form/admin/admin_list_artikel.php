@@ -29,7 +29,8 @@
             <table class="table table-hover no-margins">
                 <tbody>
                 <?php 
-                    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel order by tanggal desc");
+                    $user_sid = $_SESSION['user_sid'];
+                    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel where author = '$user_sid' order by tanggal desc");
                     while($arr = mysqli_fetch_array($sql)) {
                 ?>
                 <tr>
@@ -44,7 +45,7 @@
                         <small><?php echo trim_text(htmlspecialchars_decode($arr['isi']), 170);?></small>
                     </td>
                     <td class="project-actions">
-                        <a class="btn btn-white btn-sm"><i class="fa fa-ban"></i> Edit</a>
+                        <a class="btn btn-white btn-sm" href="?p=create-artikel&id=<?php echo $arr['sid'];?>"><i class="fa fa-ban"></i> Edit</a>
                         <a class="btn btn-white btn-sm"><i class="fa fa-send"></i> Publish</a>
                     </td>
                 </tr>

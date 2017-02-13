@@ -1,4 +1,11 @@
-<?php include("../../config/configuration.php");?>
+<?php 
+    include("../../config/configuration.php");
+
+    session_start();
+    if (empty($_SESSION['username']) || empty($_SESSION['password']) || $_SESSION['role'] != "admin" ) {
+        echo "<script>window.location.href='login.php'</script>";
+    } else {
+?>
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +36,7 @@
                             <!-- <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span> -->
                             <span class="clear"> 
                                 <span class="block m-t-xs"> 
-                                    <strong class="font-bold">Nanang Suryana</strong>
+                                    <strong class="font-bold"><?php echo $_SESSION['nama'];?></strong>
                              </span> <span class="text-muted text-xs block">Web Director</span> </span> 
                         </div>
                         <div class="logo-element">
@@ -57,13 +64,13 @@
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
-                        <li><a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
+                        <li><a href="logout.php"><i class="fa fa-sign-out"></i> Log out</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="row  border-bottom white-bg dashboard-header">
                 <div class="col-lg-12">
-                    <h2>Welcome ${USER}</h2>
+                    <h2>Welcome <?php echo $_SESSION['nama'];?></h2>
                 </div>
             </div>
             <div class="row">
@@ -117,3 +124,4 @@
    
 </body>
 </html>
+<?php } ?>

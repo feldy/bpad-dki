@@ -1,31 +1,42 @@
+<?php
+    $sid_artikel = "";
+    $judul = "";
+    $kategori = "";
+
+    if (isset($_GET['id'])) {
+        $sid_artikel = $_GET['id'];
+        
+        $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel where sid = '$sid_artikel' order by tanggal desc");
+        $arr = mysqli_fetch_array($sql);
+        
+        $judul = $arr['judul'];
+        $kategori = $arr['category'];
+    }
+
+?>
 <div class="gray-bg">
     <div class="wrapper wrapper-content">
         <div class="row">
             <div class="col-lg-12 animated fadeInRight">
                 <div class="mail-box-header">
-                    <h2>Artikel Baru</h2>
+                    <h2><?php if (strlen($sid_artikel) == 0) {echo "Artikel Baru";} else {echo "Edit Artikel";}?></h2>
                 </div>
                 <div class="mail-box">
                     <div class="mail-body">
                         <form class="form-horizontal" method="get">
                             <div class="form-group">
                                 <label class="col-sm-1 control-label">Judul:</label>
-                                <div class="col-sm-11"><input type="text" class="form-control" value=""></div>
+                                <div class="col-sm-11"><input type="text" class="form-control" value="<?php echo $judul;?>"></div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-1 control-label">Kategori:</label>
-                                <div class="col-sm-11"><input type="text" class="form-control" value=""></div>
+                                <div class="col-sm-11"><input type="text" class="form-control" value="<?php echo $kategori;?>"></div>
                             </div>
                         </form>
                     </div>
                     <div class="mail-text h-200">
                         <div class="summernote">
-                            <h3>Hello Jonathan! </h3>
-                            dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-                            <br/>
-                            <br/>
+                            <?php echo htmlspecialchars_decode($arr["isi"]);?>
                         </div>
                         <div class="clearfix"></div>
                     </div>
