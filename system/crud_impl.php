@@ -1,36 +1,50 @@
 <?php
 	include("../config/configuration.php");
-    if (isset($_POST['btn_save_spk'])) {
-    	//generat sid
-    	$id = gen_uuid();
+    if (isset($_POST['btnDeleteArtikel'])) {
+    	$id = $_POST['sid'];
+        $message['is_ok'] = false;
 
-    	//search nomor paling terakhir spk
-    	$nilai_terakhir = mysqli_query($conn, "SELECT COALESCE(MAX(LEFT(no_spk, 4)+0), 0) as nilai_terakhir FROM t_surat_perintah_kerja") or die(mysqli_error());
-    	$nilai_terakhir = mysqli_fetch_array($nilai_terakhir);
-    	$nilai_terakhir = $nilai_terakhir['nilai_terakhir'];
+        $str = "UPDATE tbl_artikel SET is_publish = 0 where sid = '$id'";
+        $query = mysqli_query($conn, $str) or die(mysqli_error($conn));
+        if ($query) {
+            $message['is_ok'] = true;
+        } else {
+            $message['is_ok'] = false;
+        }
+        
+        echo json_encode($message);
+    } else if (isset($_POST['btnSaveArtikel'])) {
+        //generat sid
+        $id = $_POST['sid'];
 
-    	// generate nomor spk
-    	$nomor_spk = str_pad($nilai_terakhir+1, 4, "0", STR_PAD_LEFT)."/JAR/".date("Y");
-    	$id_pelanggan = $_POST['id_pelanggan'];
-    	$id_team = $_POST['id_team'];
-    	$cp_nama = $_POST['cp_nama'];
-    	$cp_telepon = $_POST['cp_telepon'];
-    	$masalah = $_POST['masalah'];
-    	$catatan = htmlspecialchars($_POST['catatan']);
-    	$akses = $_POST['akses'];
+    	$judul = $_POST['judul'];
+        $authorID = $_POST['authorID'];
+    	$category = $_POST['category'];
+    	$isiArtikel = htmlspecialchars($_POST['isiArtikel']);
 
-    	//save action
-    	$str = "INSERT INTO t_surat_perintah_kerja (sid, no_spk, id_pelanggan, id_team, tanggal, cp_nama, cp_telepon, masalah, catatan, akses, status) VALUES 
-    	('$id', '$nomor_spk', '$id_pelanggan', '$id_team', now(), '$cp_nama', '$cp_telepon', '$masalah', '$catatan', '$akses', 'NEW')";
-    	// echo ">>>>".$str;
-    	$query = mysqli_query($conn, $str) or die(showDialogUtama("Error!",  mysqli_error($conn), "error", "../form/admin/?page=noc&form=new"));
+        //pengecekan apakah edit atau add new
+        $str = "SELECT * FROM tbl_artikel where sid = '$id'";
+        $query = mysqli_query($conn, $str) or die(mysqli_error($conn));
+        $rowCount = mysqli_num_rows($query); 
+        if ($rowCount > 0) { //jika sid ketemu maka edit, jika tidak maka add new
+            //edit action
+            $str = "UPDATE tbl_artikel SET judul = '$judul', category = '$category', isi = '$isiArtikel' WHERE sid = '$id'";
+            // echo ">>>>".$str;
+            $query = mysqli_query($conn, $str) or die(mysqli_error($conn));
+        } else {
+    	   //save action
+        	$str = "INSERT INTO tbl_artikel (sid, tanggal, judul, author, isi, category) VALUES 
+        	('$id', now(), '$judul', '$authorID', '$isiArtikel', '$category')";
+        	// echo ">>>>".$str;
+        	$query = mysqli_query($conn, $str) or die(mysqli_error($conn));
+        }
 
     	if ($query) {
-            showDialogUtama("Berhasil", "Data Berhasil disimpan !", "success", "../form/admin/?page=noc&form=view");
-            // echo "<script>alert('Berhasil Menyimpan Data'); window.location.href = '';</script>";
+            // showDialogUtama("Berhasil", "Data Berhasil disimpan !", "success", "../form/admin/?page=noc&form=view");
+            echo "<script>alert('Berhasil Menyimpan Data'); window.location.href = '../form/admin';</script>";
         } else {
-            showDialogUtama("Maaf!", "Data Gagal Disimpan!", "error", "../form/admin/?page=noc&form=new");
-			// echo "<script>alert('Gagal Menyimpan Data');window.history.back();</script>";
+            // showDialogUtama("Maaf!", "Data Gagal Disimpan!", "error", "../form/admin/?page=noc&form=new");
+			echo "<script>alert('Gagal Menyimpan Data');window.history.back();</script>";
 		}	
     }
 ?>

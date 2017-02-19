@@ -1,4 +1,11 @@
-body { padding-top: 60px; }
+.body-content { 
+  padding-top: 60px;
+}
+.body-admin { 
+  background-color: #2f4050;
+  /*background-image: url("../lib/css/patterns/header-profile.png");*/
+  /*background-repeat: repeat-x;*/
+}
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -37,6 +44,43 @@ body { padding-top: 60px; }
   font-weight: bold;
 } 
 
-.body-admin {
-  background-color: #2f4050 !important;
+.note-editor.note-frame {
+    border: none
+}
+.btn-default {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+.note-editor .btn-default:hover,
+.note-editor .btn-default:focus,
+.note-editor .btn-default:active,
+.note-editor .btn-default.active,
+.open .dropdown-toggle.note-editor .btn-default {
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+.note-editor .btn-default:active,
+.note-editor .btn-default.active,
+.open .dropdown-toggle.note-editor .btn-default {
+  background-image: none;
+}
+.note-editor .btn-default.disabled,
+.note-editor .btn-default[disabled],
+fieldset[disabled] .note-editor .btn-default,
+.note-editor .btn-default.disabled:hover,
+.note-editor .btn-default[disabled]:hover,
+fieldset[disabled] .note-editor .btn-default:hover,
+.note-editor .btn-default.disabled:focus,
+.note-editor .btn-default[disabled]:focus,
+fieldset[disabled] .note-editor .btn-default:focus,
+.note-editor .btn-default.disabled:active,
+.note-editor .btn-default[disabled]:active,
+fieldset[disabled] .note-editor .btn-default:active,
+.note-editor .btn-default.disabled.active,
+.note-editor .btn-default[disabled].active,
+fieldset[disabled] .note-editor .btn-default.active {
+  background-color: #ffffff;
+  border-color: #cccccc;
 }

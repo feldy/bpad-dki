@@ -10,7 +10,7 @@
                     $sql = mysqli_query($conn, 
                         "SELECT     * 
                         FROM        tbl_artikel 
-                        WHERE       MATCH(judul, category, isi) AGAINST('$txtSearch' IN BOOLEAN MODE)  order by viewed desc LIMIT 15");
+                        WHERE       MATCH(judul, category, isi) AGAINST('$txtSearch' IN BOOLEAN MODE) and is_publish = 1  order by viewed desc LIMIT 15");
                     
                     $rowCount = mysqli_num_rows($sql);
                 ?>
@@ -46,21 +46,6 @@
                     ?>
                 </div>
                 <?php } ?>
-
-                <!-- <div class="hr-line-dashed"></div>
-                <div class="text-center">
-                    <div class="btn-group">
-                        <button class="btn btn-white" type="button"><i class="fa fa-chevron-left"></i></button>
-                        <button class="btn btn-white">1</button>
-                        <button class="btn btn-white  active">2</button>
-                        <button class="btn btn-white">3</button>
-                        <button class="btn btn-white">4</button>
-                        <button class="btn btn-white">5</button>
-                        <button class="btn btn-white">6</button>
-                        <button class="btn btn-white">7</button>
-                        <button class="btn btn-white" type="button"><i class="fa fa-chevron-right"></i> </button>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

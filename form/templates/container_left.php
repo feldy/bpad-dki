@@ -2,7 +2,7 @@
 <h4><i class="fa fa-link"></i> Dosir Dispusip</h4>
 <ul class="list-group clear-list m-t">
 	<?php  
-	    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel group by category order by viewed desc, tanggal desc, judul desc LIMIT 15");
+	    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel WHERE is_publish = 1 group by category order by viewed desc, tanggal desc, judul desc LIMIT 15");
 	    while($arr = mysqli_fetch_array($sql)) {
 	?>
      <li class="list-group-item">

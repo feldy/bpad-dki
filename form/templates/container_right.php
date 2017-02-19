@@ -25,7 +25,7 @@
             <div class="ibox-content">
                 <div class="feed-activity-list">
                 <?php 
-                    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel order by tanggal desc LIMIT 5");
+                    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel WHERE is_publish = 1 order by tanggal desc LIMIT 5");
                     while($arr = mysqli_fetch_array($sql)) {
                 ?>
                     <div class="feed-element">
@@ -51,7 +51,7 @@
             <div class="ibox-content">
                 <div class="feed-activity-list">
                 <?php 
-                    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel order by viewed desc LIMIT 5");
+                    $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel WHERE is_publish = 1 order by viewed desc LIMIT 5");
                     while($arr = mysqli_fetch_array($sql)) {
                 ?>
                     <div class="feed-element">

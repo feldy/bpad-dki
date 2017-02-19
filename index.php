@@ -5,12 +5,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dosir Dispusip</title>
+        
+        <!-- Libraries -->
         <link href="lib/css/bootstrap.min.css" rel="stylesheet">
         <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-        <link href="css/default.css" rel="stylesheet">
         <link href="lib/css/style.css" rel="stylesheet">
+
+        <!-- Customize user -->
+        <link href="css/default.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="body-content">
         <div id="wrapper">
             <div id="page-wrapper" style="margin-left: 0px;min-height: inherit;" class="gray-bg dashbard-1">
                 <nav class="navbar navbar-default navbar-fixed-top">

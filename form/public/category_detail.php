@@ -7,7 +7,7 @@
         <h3>Dosir <?php echo $page;?></h3>
     </div>
     <?php 
-        $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel where category = '$page' order by tanggal desc");
+        $sql = mysqli_query($conn, "SELECT * FROM tbl_artikel where is_publish = 1 and category = '$page' order by tanggal desc");
         while($arr = mysqli_fetch_array($sql)) {
     ?>
     <div class="forum-item">
