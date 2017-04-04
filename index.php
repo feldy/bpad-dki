@@ -20,9 +20,16 @@
                 <nav class="navbar navbar-default navbar-fixed-top">
                   <div class="container">
                         <div class="navbar-header">
-                            <a href="?p=home"><img alt="Brand" class="img-responsive" width="90px" src="images/siDOEL.png"></a>
+                            <a href="?p=home"><img alt="Brand" class="img-responsive" width="130px" src="images/siDOEL.png"></a>
                         </div>
-                        <p class="navbar-text" style="margin-left: -15px;"><h2>Sistem Dosir Elektronik</h2></p>
+                        <div class="navbar-text" style="margin: 0 0 0 -15px;">
+                            <p>
+                                <h1>
+                                    Sistem <br />
+                                    Dosir Elektronik
+                                </h1>
+                            </p>
+                        </div>
                   </div>
                 </nav>
                 <div class="row  border-bottom white-bg dashboard-header">

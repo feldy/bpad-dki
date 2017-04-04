@@ -10,7 +10,7 @@
                     $sql = mysqli_query($conn, 
                         "SELECT     * 
                         FROM        tbl_artikel 
-                        WHERE       MATCH(judul, category, isi) AGAINST('$txtSearch' IN BOOLEAN MODE) and is_publish = 1  order by viewed desc LIMIT 15");
+                        WHERE       MATCH(judul, category, sub_category, isi) AGAINST('$txtSearch' IN BOOLEAN MODE) and is_publish = 1  order by viewed desc LIMIT 15");
                     
                     $rowCount = mysqli_num_rows($sql);
                 ?>
@@ -27,11 +27,17 @@
                         //pemotongan kata sekaligus pencarian kata. pemotongannya berdasarkan hasil yang ditemukan
                         $regex = '/([A-Za-z0-9.,-]+\s*){0,5}\s'.$txtSearch.'(\s|[,.!?])(\s*[A-Za-z0-9.,-]+){0,50}/i';
                         preg_match($regex, $content, $resultSearch);
-                        // echo ">>".$resultSearch[0];
+                        // echo ">>".$resultSearch;
+                        // print_r($resultSearch);
 
                         // implement highlightWords jika ada kata yang nyangkut di contentnya
-                        $words = explode(" ", $txtSearch); //make search terms an array of terms
-                        $resultSearch = highlightWords($resultSearch[0], $words);
+                        $words = explode(" ", $txtSearch); //make search terms an array of terms'
+                        if (!empty($resultSearch)) {
+                            $resultSearch = highlightWords($resultSearch[0], $words);
+                        } else {
+                            $resultSearch = "";
+                        }
+                        // echo strlen($resultSearch);
 
                 ?>
                 <div class="hr-line-dashed"></div>
@@ -41,7 +47,7 @@
                         if (strlen($resultSearch)) {
                             echo $resultSearch;
                         } else {
-                            echo trim_text($content, 300);
+                            echo trim_text($content, 500);
                         }
                     ?>
                 </div>

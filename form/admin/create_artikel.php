@@ -13,6 +13,8 @@
         
         $judul = $arr['judul'];
         $kategori = $arr['category'];
+        $subKategori = $arr['sub_category'];
+        $sumberArtikel = $arr['sumber'];
         $isi = htmlspecialchars_decode($arr["isi"]);
 
     }
@@ -74,15 +76,23 @@
                     <div class="mail-box">
                         <div class="mail-body">
                                 <div class="form-group">
-                                    <label class="col-sm-1 control-label">Judul:</label>
-                                    <div class="col-sm-11"><input type="text" class="form-control" name="judul" value="<?php echo $judul;?>"></div>
+                                    <label class="col-sm-2 control-label">Judul:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" name="judul" value="<?php echo $judul;?>"></div>
                                     <input type="hidden" name="authorID" value="<?php echo $authorID; ?>" />
                                     <input type="hidden" name="sid" id="sidArtikel" 
                                     value="<?php if (strlen($sid_artikel) == 0) {echo gen_uuid();} else {echo $sid_artikel;}?>" />
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-1 control-label">Kategori:</label>
-                                    <div class="col-sm-11"><input type="text" id="kategoriArtikel" class="form-control typeahead" name="category" value="<?php echo $kategori;?>"></div>
+                                    <label class="col-sm-2 control-label">Kategori:</label>
+                                    <div class="col-sm-10"><input type="text" id="kategoriArtikel" class="form-control typeahead" name="category" value="<?php echo $kategori;?>"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Sub Kategori:</label>
+                                    <div class="col-sm-10"><input type="text" id="subKategoriArtikel" class="form-control typeahead" name="subCategory" value="<?php echo $subKategori;?>"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Sumber:</label>
+                                    <div class="col-sm-10"><input type="text" id="sumberArtikel" class="form-control typeahead" name="sumberArtikel" value="<?php echo $sumberArtikel;?>"></div>
                                 </div>
                         </div>
                         <div class="mail-text h-200">

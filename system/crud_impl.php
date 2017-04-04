@@ -19,8 +19,11 @@
 
     	$judul = $_POST['judul'];
         $authorID = $_POST['authorID'];
-    	$category = $_POST['category'];
+        $category = $_POST['category'];
+        $subCategory = $_POST['subCategory'];
+    	$sumberArtikel = $_POST['sumberArtikel'];
     	$isiArtikel = htmlspecialchars($_POST['isiArtikel']);
+        // echo "$isiArtikel";
 
         //pengecekan apakah edit atau add new
         $str = "SELECT * FROM tbl_artikel where sid = '$id'";
@@ -28,13 +31,13 @@
         $rowCount = mysqli_num_rows($query); 
         if ($rowCount > 0) { //jika sid ketemu maka edit, jika tidak maka add new
             //edit action
-            $str = "UPDATE tbl_artikel SET judul = '$judul', category = '$category', isi = '$isiArtikel' WHERE sid = '$id'";
+            $str = "UPDATE tbl_artikel SET judul = '$judul', category = '$category', sub_category = '$subCategory', sumber = '$sumberArtikel', isi = '$isiArtikel' WHERE sid = '$id'";
             // echo ">>>>".$str;
             $query = mysqli_query($conn, $str) or die(mysqli_error($conn));
         } else {
     	   //save action
-        	$str = "INSERT INTO tbl_artikel (sid, tanggal, judul, author, isi, category) VALUES 
-        	('$id', now(), '$judul', '$authorID', '$isiArtikel', '$category')";
+        	$str = "INSERT INTO tbl_artikel (sid, tanggal, judul, author, isi, category, sub_category, sumber, is_publish) VALUES 
+        	('$id', now(), '$judul', '$authorID', '$isiArtikel', '$category', '$subCategory', '$sumberArtikel', 1)";
         	// echo ">>>>".$str;
         	$query = mysqli_query($conn, $str) or die(mysqli_error($conn));
         }
