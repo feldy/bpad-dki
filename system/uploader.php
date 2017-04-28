@@ -21,7 +21,7 @@
 
                 $location = $_FILES["file"]["tmp_name"];
                 move_uploaded_file($location, $destination);
-                $message['url'] = "img-uploads/". $sid .'/'. $filename; 
+                $message['url'] = "/".$appName."/"."img-uploads/". $sid .'/'. $filename; 
                 $message['is_ok'] = true;
                 $message['parentDir'] = $parentDir;
             } else {
