@@ -14,25 +14,18 @@
         <!-- Customize user -->
         <link href="css/default.css" rel="stylesheet">
     </head>
-    <body class="body-content">
+    <!-- <body class="body-content"> -->
+    <body class="">
         <div id="wrapper">
             <div id="page-wrapper" style="margin-left: 0px;min-height: inherit;" class="gray-bg dashbard-1">
-                <nav class="navbar navbar-default navbar-fixed-top">
+               <!--  <nav class="navbar navbar-default navbar-fixed-top">
                   <div class="container">
                         <div class="navbar-header">
                             <a href="?p=home"><img alt="Brand" class="img-responsive" width="130px" src="images/siDOEL.png"></a>
                         </div>
-                        <div class="navbar-text" style="margin: 0 0 0 -15px;">
-                            <p>
-                                <h1>
-                                    Sistem <br />
-                                    Dosir Elektronik
-                                </h1>
-                            </p>
-                        </div>
                   </div>
-                </nav>
-                <div class="row  border-bottom white-bg dashboard-header">
+                </nav> -->
+                <div class="row border-bottom white-bg dashboard-header">
                     <div class="col-lg-2 ibox-content ibox-heading">
                         <?php include("form/templates/container_left.php");?>
                     </div>

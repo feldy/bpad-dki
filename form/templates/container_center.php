@@ -1,12 +1,11 @@
 <?php
-    $pagePost = $_POST['searching'];
     $txtSearch = "";
-    $page = $_GET['p'];
-    if (isset($pagePost)) {
+    if (isset($_POST['searching'])) {
         $txtSearch = $_POST['txt_search']; 
         include("form/public/result_search.php");
 
-    } else if (isset($page)) {
+    } else if (isset($_GET['p'])) {
+        $page = $_GET['p'];
         switch ($page) {
             case 'detail':
                 include("form/public/artikel_detail.php");

@@ -2,6 +2,16 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
+                <h5><i class="fa fa-search"></i> Sidoel</h5>
+            </div>
+            <div class="ibox-content">
+                <a href="?p=home"><img alt="Brand" class="img-responsive" width="" src="images/siDOEL.png"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
                 <h5><i class="fa fa-search"></i> Pencarian</h5>
             </div>
             <div class="ibox-content">

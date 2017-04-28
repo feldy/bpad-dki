@@ -1,6 +1,8 @@
 <?php 
-    $root = $_SERVER['DOCUMENT_ROOT'];
-    $parentDir = $root.'/bpad-dki/img-uploads/';
+    $appName = "dosir";
+    $root = $_SERVER['DOCUMENT_ROOT']."/".$appName."/";
+    $parentDir = $root . 'img-uploads/';
+    // $parentDir = 'img-uploads/';
 
     $message['is_ok'] = false;
     $sid = $_POST['sid'];
@@ -19,8 +21,9 @@
 
                 $location = $_FILES["file"]["tmp_name"];
                 move_uploaded_file($location, $destination);
-                $message['url'] = "/bpad-dki/img-uploads/". $sid .'/'. $filename; 
+                $message['url'] = "img-uploads/". $sid .'/'. $filename; 
                 $message['is_ok'] = true;
+                $message['parentDir'] = $parentDir;
             } else {
                 $message['error'] = 'Jenis File Bukan file photo !';
             }

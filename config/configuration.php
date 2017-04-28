@@ -3,7 +3,7 @@
 	// $conn = mysqli_connect("mysql.idhostinger.com","u263754169_bpad","u263754169_bpad");
 	// mysqli_select_db($conn, 'u263754169_bpad') or die(mysqli_error($conn));
 
-	$conn = mysqli_connect("localhost","root","admin");
+	$conn = mysqli_connect("localhost","root","");
 	mysqli_select_db($conn, 'dosir_bpad') or die(mysqli_error($conn));
 
 	function gen_uuid() {

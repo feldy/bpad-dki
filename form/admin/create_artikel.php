@@ -4,6 +4,8 @@
     $judul = "";
     $kategori = "";
     $isi = "";
+    $subKategori = "";
+    $sumberArtikel = "";
 
     if (isset($_GET['id'])) {
         $sid_artikel = $_GET['id'];
